@@ -11,7 +11,6 @@ const toppingsArr = [
 const toppings = new Map(toppingsArr);
 let list = document.getElementsByTagName("ul")[0];
 
-// initialize default user order list
 let userOrder = {};
 function initializeOrder() {
     toppingsArr.forEach(function (item) {
@@ -23,7 +22,7 @@ function initializeOrder() {
 }
 initializeOrder();
 
-// default item in user order
+
 userOrder["Pizza Base"] = {
     quantity: 1,
     price: 3
@@ -33,11 +32,11 @@ function createItems(items) {
     items.forEach(function (price, item) {
         let listItem = document.createElement("li");
 
-        // name and cost on the left of the each list item
+       
         let leftDivElement = document.createElement("div");
         leftDivElement.classList.add("left");
 
-        // create a span for the name and p for the cost
+        
         let nameElement = document.createElement("span");
         nameElement.appendChild(document.createTextNode(item));
         let costElement = document.createElement("p");
@@ -49,14 +48,14 @@ function createItems(items) {
 
         listItem.appendChild(leftDivElement);
 
-        // right section of list item for increasing and decreasing quantities
+       
         let rightDivElement = document.createElement("div");
         rightDivElement.classList.add("right");
 
-        // buttons to increase and decrease and a span showing quantity
+        
         let quantityElement = document.createElement("span");
         quantityElement.classList.add("quantity")
-        // default quantity of 0
+       
         quantityElement.appendChild(document.createTextNode(0));
 
         let increaseButton = document.createElement("button");
@@ -73,7 +72,7 @@ function createItems(items) {
                     decreaseButton.disabled = false;
                     quantityElement.innerHTML = ++toppingQuantity;
 
-                    // insert the image
+                   
                     let imgElement = document.createElement("img");
                     let imgName = item.toLowerCase().split(" ").join("-");
                     imgElement.classList.add(imgName);
@@ -81,19 +80,19 @@ function createItems(items) {
                     imgElement.setAttribute("src", imgLoc);
                     document.getElementsByTagName("body")[0].appendChild(imgElement);
 
-                    // update totalQuantity
+                    
                     totalQuantity++;
 
-                    // update the order
+                   
                     userOrder[item].quantity = toppingQuantity;
                     userOrder[item].price += price;
 
-                    // if topping quantity updates to 2 disable the button
+                    
                     if (toppingQuantity === 2) {
                         increaseButton.disabled = true;
                     }
 
-                    // change the total price
+                    
                     showTotalPrice();
                 } else {
                     alert(`Cannot add more than 2 toppings for ${item} topping!`);
@@ -102,7 +101,7 @@ function createItems(items) {
                 alert("Cannot add more than 10 toppings!")
             }
 
-            // enable checkouts if at least 1 topping selected
+            
             if(totalQuantity > 0) {
                 checkoutButton.disabled = false;
             }
@@ -112,7 +111,7 @@ function createItems(items) {
         decreaseButton.appendChild(document.createTextNode("-"));
         decreaseButton.classList.add("decrease");
         decreaseButton.classList.add("small-btn");
-        // by default, decreaseButton should be disabled
+        
         decreaseButton.disabled = true;
 
         decreaseButton.addEventListener("click", function () {
@@ -120,19 +119,19 @@ function createItems(items) {
             if (toppingQuantity > 0) {
                 quantityElement.innerHTML = --toppingQuantity;
 
-                // remove the image
+                
                 let imgName = item.toLowerCase().split(" ").join("-");
                 document.getElementsByClassName(imgName)[0].remove();
 
-                // update user order
+                
                 userOrder[item].quantity = toppingQuantity;
                 userOrder[item].price -= price;
 
-                // change the total price
+                
                 showTotalPrice();
             }
 
-            // enable increaseButton if toppings less than 2 and disable decreaseButton if toppings are 0
+            
             if (toppingQuantity < 2) {
                 increaseButton.disabled = false;
                 if (toppingQuantity === 0) {
@@ -140,7 +139,7 @@ function createItems(items) {
                 }
             }
 
-            // disable checkouts if no toppings
+           
             if (calculateTotalQuantity() === 0) {
                 checkoutButton.disabled = true;
             }
@@ -159,7 +158,7 @@ function createItems(items) {
 
 createItems(toppings);
 
-// add list item showing total cost
+
 let listItem = document.createElement("li");
 let totalText = document.createElement("span");
 totalText.classList.add("left");
@@ -174,7 +173,7 @@ costEle.classList.add("right");
 listItem.appendChild(costEle);
 list.appendChild(listItem)
 
-// add checkout button at last
+
 let checkoutItem = document.createElement("li");
 let checkoutButton = document.createElement("button");
 checkoutButton.classList.add("blue-btn");
@@ -184,7 +183,7 @@ checkoutButton.innerHTML = "Checkout";
 checkoutItem.appendChild(checkoutButton);
 list.appendChild(checkoutItem);
 
-// show total price for the first time
+
 showTotalPrice();
 
 document.getElementById("reset-btn").addEventListener("click", reset);

@@ -18,19 +18,19 @@ function showTotalPrice() {
 }
 
 function reset() {
-    // clear all non-default images
+    
     document.querySelectorAll("img").forEach(function (image) {
         if (!image.classList.contains("default")) {
             image.remove();
         }
     });
 
-    // clear the quantities back to 0
+   
     document.querySelectorAll(".quantity").forEach(function (quantityEle) {
         quantityEle.innerHTML = 0;
     });
 
-    // disable & enable appropriate buttons
+    
     checkoutButton.disabled = true;
     document.querySelectorAll(".decrease").forEach(function (button) {
         button.disabled = true;
@@ -39,9 +39,9 @@ function reset() {
         button.disabled = false;
     });
 
-    // reinitialize the order
+    
     initializeOrder();
 
-    // update the price
+    
     showTotalPrice();
 }
