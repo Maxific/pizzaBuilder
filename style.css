@@ -188,7 +188,7 @@ body .vegitable {
     left: 45%;
 }
 
-body .jalapeno{
+body .bacon{
     width: 200px;
     height: 200px;
     position: absolute;
@@ -204,7 +204,7 @@ body .mozzarella{
     top: 420px;
 }
 
-body .sauce{
+body .tomato{
     width: 200px;
     height: 200px;
     position: absolute;
@@ -212,7 +212,7 @@ body .sauce{
     top: 500px;
 }
 
-body .extra{
+body .garlic{
     width: 200px;
     height: 200px;
     position: absolute;
@@ -220,7 +220,7 @@ body .extra{
     top: 500px;
 }
 
-body .onion{
+body .olives{
     width: 200px;
     height: 200px;
     position: absolute;
@@ -228,7 +228,7 @@ body .onion{
     top: 450px;
 }
 
-body .capsicum{
+body .salami{
     width: 200px;
     height: 200px;
     position: absolute;

@@ -1,11 +1,11 @@
 const toppingsArr = [
-    ["Vegitable", 4],
-    ["jalapeno", 5],
+    ["vegitable", 4],
+    ["bacon", 5],
     ["mozzarella", 8],
-    ["sauce", 4],
-    ["Extra", 9],
-    ["onion", 3],
-    ["capsicum", 1]
+    ["tomato", 4],
+    ["garlic", 9],
+    ["olives", 3],
+    ["salami", 1]
 ]
 
 const toppings = new Map(toppingsArr);
